@@ -1,4 +1,4 @@
-<img src="/public/image/poing.png"/>
+<img src="/src/assert/image/poing.png"/>
 
 #Clone Project - POING
 
