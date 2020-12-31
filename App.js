@@ -10,8 +10,8 @@ export default function App() {
   return (
     <View style={styles.container}>
       {/* <PoingContainer /> */}
-      {/* <Navigation /> */}
-      <Test />
+      <Navigation />
+      {/* <Test /> */}
     </View>
   );
 }

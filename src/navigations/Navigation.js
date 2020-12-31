@@ -4,10 +4,10 @@ import { AntDesign, MaterialIcons, Ionicons } from 'react-native-vector-icons';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
-import HomeScreen from '../components/HomeScreen';
-import MyPoing from '../components/MyPoing';
-import Search from '../components/Search';
-import Tiket from '../components/Tiket';
+import HomeScreen from '../components/homeScreen/HomeScreen';
+import MyPoing from '../components/homeScreen/MyPoing';
+import Search from '../components/homeScreen/Search';
+import Tiket from '../components/homeScreen/Tiket';
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
