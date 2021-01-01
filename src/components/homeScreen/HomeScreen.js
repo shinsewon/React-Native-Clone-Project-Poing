@@ -4,7 +4,8 @@ import { AntDesign, MaterialIcons } from 'react-native-vector-icons';
 import CardSlider from './CardSlider';
 import AwardsCard from './AwardsCard';
 import TotalFoodCard from './TotalFoodCard';
-// import colors from '../../styles/color/Color';
+import ItemCard from './ItemCard';
+import RectangleSilder from './RectangleSlider';
 
 const LogoTitle = () => {
   return (
@@ -50,7 +51,10 @@ export default function HomeScreen() {
           <AwardsCard />
           <SectionBar title="서울 전체 음식 종류별" />
           <TotalFoodCard />
-          <AwardsCard />
+          <SectionBar title="서울 전체 추천 레스토랑" show={true} />
+          <ItemCard />
+          <SectionBar title="스시 매니아들을 위한" show={true} />
+          <RectangleSilder />
         </View>
       </ScrollView>
     </SafeAreaView>

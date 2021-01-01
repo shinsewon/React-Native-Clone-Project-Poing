@@ -6,7 +6,6 @@ import { TOTAL_FOOD_PICTURE } from '../../data/data';
 
 export default function TotalFoodCard() {
   const renderItem = (item) => {
-    console.log('item 잘 나오냐>>', item);
     return (
       <View style={styles.awardsCardContainer}>
         <Image source={item.src} style={styles.card} resizeMode={'cover'} />
@@ -34,8 +33,8 @@ const styles = StyleSheet.create({
     flex: 1,
     width: '100%',
     height: 180,
-    marginTop: 20,
-    backgroundColor: 'yellow',
+    marginTop: 30,
+    // backgroundColor: 'yellow',
   },
   awardsCardContainer: {
     flex: 1,
