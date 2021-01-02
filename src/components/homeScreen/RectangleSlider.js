@@ -1,67 +1,42 @@
 import React, { useRef } from 'react';
-import { StyleSheet, Text, View, SafeAreaView, Image, Dimensions } from 'react-native';
+import { StyleSheet, Text, View, SafeAreaView, Image, Dimensions, TouchableOpacity } from 'react-native';
 import Carousel from 'react-native-snap-carousel';
+// import Carousel from 'react-native-anchor-carousel';
 import { RECTANGLE_CARD } from '../../data/data';
 
 export default function RectangleSlider() {
-  const cardRef = useRef();
+  const cardRef = useRef(null);
 
   const handleRenderItem = ({ item, index }) => {
     return (
-      <View style={styles.slide}>
+      <TouchableOpacity>
         <Image source={item.src} resizeMode="contain" style={styles.slideInnerContainer} />
-      </View>
+      </TouchableOpacity>
     );
   };
 
   return (
-    <SafeAreaView style={styles.wrap}>
-      {/* <Carousel
-        data={RECTANGLE_CARD}
-        layout={'default'}
-        ref={cardRef}
-        sliderWidth={sliderWidth}
-        itemWidth={itemWidth}
-        renderItem={handleRenderItem}
-        slideStyle={{ marginLeft: -2 }}
-      /> */}
-      <Carousel
-        data={RECTANGLE_CARD}
-        layout={'default'}
-        ref={cardRef}
-        sliderWidth={sliderWidth}
-        itemWidth={itemWidth}
-        renderItem={handleRenderItem}
-        slideStyle={{ marginLeft: -2, backgroundColor: 'blue' }}
-      />
-    </SafeAreaView>
+    <Carousel
+      data={RECTANGLE_CARD}
+      layout={'default'}
+      ref={cardRef}
+      sliderWidth={380}
+      itemWidth={150}
+      renderItem={handleRenderItem}
+      // slideStyle={styles.slide}
+    />
   );
 }
 
-const horizontalMargin = 20;
-const slideWidth = 400;
-const sliderWidth = Dimensions.get('window').width;
-const itemWidth = slideWidth + horizontalMargin * 2;
-const itemHeight = 300;
-
 const styles = StyleSheet.create({
-  wrap: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
   pictureCard: {
     borderRadius: 5,
     height: 250,
   },
-  slide: {
-    width: itemWidth,
-    height: itemHeight,
-    paddingHorizontal: horizontalMargin,
-  },
+
   slideInnerContainer: {
-    flex: 1,
-    width: slideWidth,
+    width: '100%',
+    height: 300,
     overflow: 'hidden',
   },
 });

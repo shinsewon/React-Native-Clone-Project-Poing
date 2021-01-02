@@ -6,6 +6,7 @@ import AwardsCard from './AwardsCard';
 import TotalFoodCard from './TotalFoodCard';
 import ItemCard from './ItemCard';
 import RectangleSilder from './RectangleSlider';
+import Test2 from './Test2';
 
 const LogoTitle = () => {
   return (
