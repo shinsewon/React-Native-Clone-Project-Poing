@@ -1,42 +1,39 @@
-import React, { useRef } from 'react';
-import { StyleSheet, Text, View, SafeAreaView, Image, Dimensions, TouchableOpacity } from 'react-native';
-import Carousel from 'react-native-snap-carousel';
-// import Carousel from 'react-native-anchor-carousel';
+import React from 'react';
+import { StyleSheet, View, Image, Dimensions, ScrollView } from 'react-native';
 import { RECTANGLE_CARD } from '../../data/data';
 
 export default function RectangleSlider() {
-  const cardRef = useRef(null);
-
-  const handleRenderItem = ({ item, index }) => {
-    return (
-      <TouchableOpacity>
-        <Image source={item.src} resizeMode="contain" style={styles.slideInnerContainer} />
-      </TouchableOpacity>
-    );
-  };
-
   return (
-    <Carousel
-      data={RECTANGLE_CARD}
-      layout={'default'}
-      ref={cardRef}
-      sliderWidth={380}
-      itemWidth={150}
-      renderItem={handleRenderItem}
-      // slideStyle={styles.slide}
-    />
+    // <View style={{ width: 400 }}>
+    <ScrollView horizontal={true} pagingEnabled={true} showsHorizontalScrollIndicator={false}>
+      {RECTANGLE_CARD.map((item) => {
+        return (
+          <View style={styles.view} key={item.id}>
+            <Image source={item.src} resizeMode="contain" style={styles.slideInnerContainer} />
+          </View>
+        );
+      })}
+    </ScrollView>
+    // </View>
   );
 }
 
-const styles = StyleSheet.create({
-  pictureCard: {
-    borderRadius: 5,
-    height: 250,
-  },
+const screenWidth = Dimensions.get('window').width;
+const screenHeight = Dimensions.get('window').height;
 
+const styles = StyleSheet.create({
+  view: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 20,
+    marginRight: 10,
+    width: 200,
+    height: 400,
+  },
   slideInnerContainer: {
     width: '100%',
-    height: 300,
+    height: 400,
     overflow: 'hidden',
   },
 });

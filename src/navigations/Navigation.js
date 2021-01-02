@@ -5,9 +5,9 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
 import HomeScreen from '../components/homeScreen/HomeScreen';
-import MyPoing from '../components/homeScreen/MyPoing';
-import Search from '../components/homeScreen/Search';
-import Tiket from '../components/homeScreen/Tiket';
+import MyPoing from './MyPoing';
+import Search from './Search';
+import Tiket from './Tiket';
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -18,7 +18,7 @@ const TabNavigator = () => {
       screenOptions={({ route }) => ({
         tabBarIcon: ({ focused, color, size }) => {
           if (route.name === '홈') {
-            return <Ionicons name={focused ? 'home' : 'home-outline'} size={25} color={color} />;
+            return <Ionicons name={focused ? 'home' : 'home-outline'} size={size} color={color} />;
           }
           if (route.name === '검색') {
             return <AntDesign name="search1" size={size} color={color} />;

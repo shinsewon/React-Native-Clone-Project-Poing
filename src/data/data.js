@@ -49,6 +49,28 @@ export const RECTANGLE_CARD = [
     title: 'rectangleCard4',
     src: require('../assert/image/rectangleCard/rectangleCard4.png'),
   },
+  // {
+  //   id: 5,
+  //   title: 'rectangleCard1',
+  //   src: require('../assert/image/rectangleCard/rectangleCard1.png'),
+  // },
+  // {
+  //   id: 6,
+  //   title: 'rectangleCard2',
+  //   src: require('../assert/image/rectangleCard/rectangleCard2.png'),
+  // },
+
+  // {
+  //   id: 7,
+  //   title: 'rectangleCard3',
+  //   src: require('../assert/image/rectangleCard/rectangleCard3.png'),
+  // },
+
+  // {
+  //   id: 8,
+  //   title: 'rectangleCard4',
+  //   src: require('../assert/image/rectangleCard/rectangleCard4.png'),
+  // },
 ];
 
 export const AWARDS_PICTURE = [

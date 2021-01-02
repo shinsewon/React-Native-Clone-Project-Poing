@@ -6,7 +6,6 @@ import AwardsCard from './AwardsCard';
 import TotalFoodCard from './TotalFoodCard';
 import ItemCard from './ItemCard';
 import RectangleSilder from './RectangleSlider';
-import Test2 from './Test2';
 
 const LogoTitle = () => {
   return (
@@ -69,6 +68,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#fff',
   },
+  container: {
+    flex: 1,
+    marginHorizontal: 20,
+  },
   logoTitleWrap: {
     flex: 0,
     flexDirection: 'row',
@@ -100,10 +103,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignSelf: 'center',
   },
-  container: {
-    flex: 1,
-    marginHorizontal: 20,
-  },
+
   poingAwards: {
     flex: 1,
     flexDirection: 'row',
