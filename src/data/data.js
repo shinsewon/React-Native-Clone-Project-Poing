@@ -200,3 +200,42 @@ export const RECOMMENDATION_RESTAURANT = [
     src: require('../assert/image/recommendation_restaurant/itemCard6.png'),
   },
 ];
+
+export const POPULAR_SEARCHES = [
+  {
+    id: 1,
+    title: '스시',
+  },
+  {
+    id: 2,
+    title: '스테이크',
+  },
+  {
+    id: 3,
+    title: '포잉TOP50',
+  },
+  {
+    id: 4,
+    title: '압구정 스시',
+  },
+  {
+    id: 5,
+    title: '여의도',
+  },
+  {
+    id: 6,
+    title: '한남동 파스타',
+  },
+  {
+    id: 7,
+    title: '와인페어링',
+  },
+  {
+    id: 8,
+    title: '이태원',
+  },
+  {
+    id: 9,
+    title: '광화문',
+  },
+];

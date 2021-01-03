@@ -4,7 +4,6 @@ import { RECTANGLE_CARD } from '../../data/data';
 
 export default function RectangleSlider() {
   return (
-    // <View style={{ width: 400 }}>
     <ScrollView horizontal={true} pagingEnabled={true} showsHorizontalScrollIndicator={false}>
       {RECTANGLE_CARD.map((item) => {
         return (
@@ -14,12 +13,8 @@ export default function RectangleSlider() {
         );
       })}
     </ScrollView>
-    // </View>
   );
 }
-
-const screenWidth = Dimensions.get('window').width;
-const screenHeight = Dimensions.get('window').height;
 
 const styles = StyleSheet.create({
   view: {
