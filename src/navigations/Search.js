@@ -1,17 +1,39 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, ScrollView, SafeAreaView, TextInput, TouchableOpacity } from 'react-native';
+import styled from 'styled-components/native';
+import { StyleSheet, Text, View, ScrollView, SafeAreaView, TextInput, TouchableOpacity, Alert, FlatList } from 'react-native';
 import DetailRestaurant from '../screens/DetailRestaurant';
 import MainSlide from '../components/DetialRestaurant/MainSlide';
 import { AntDesign, Feather } from 'react-native-vector-icons';
 import { colors } from '../styles/color/Color';
 import { POPULAR_SEARCHES } from '../data/data';
 
-const TextInputBox = ({ click, setClick }) => {
+const TextInputBox = ({ click, setClick, searchTitle, setSearchTitle, recentSearch, setRecentSearch }) => {
+  const [Id, setId] = useState(0);
+
+  const handelSearch = () => {
+    setId((Id) => Id + 1);
+    const searchTitleId = Id;
+    const addSearchTitle = recentSearch.concat({ id: searchTitleId, title: searchTitle });
+    setRecentSearch(addSearchTitle);
+    setSearchTitle('');
+  };
+
   return (
     <View style={styles.textInputContainer}>
       {click ? <AntDesign name="left" size={25} style={styles.left} /> : null}
-      <TextInput style={styles.textinput} autoCapitalize="none" placeholder="매장, 음식, 지역을 검색해보세요." onTouchStart={() => setClick(true)} />
-      <View style={styles.right}>{click ? <Text>취소</Text> : null}</View>
+      <TextInput
+        autoFocus={true}
+        returnKeyType="search"
+        value={searchTitle}
+        style={styles.textinput}
+        autoCapitalize="none"
+        autoCompleteType="off"
+        placeholder="매장, 음식, 지역을 검색해보세요."
+        onChangeText={(e) => setSearchTitle(e)}
+        onTouchStart={() => setClick(true)}
+        onSubmitEditing={(e) => handelSearch(e)}
+      />
+      <View style={styles.right}>{click ? <Text onPress={() => setSearchTitle('')}>취소</Text> : null}</View>
     </View>
   );
 };
@@ -26,21 +48,56 @@ const GoToModal = () => {
   );
 };
 
-const RecentSearches = () => {
+// const RecentSearches = () => {
+//   return (
+//     <View style={styles.searchContainer}>
+//       <View>
+//         <Text style={{ color: colors.defaultgray, fontSize: 12 }}>최근 검색어</Text>
+//       </View>
+//       <View style={styles.searchBox}>
+//         <View style={styles.searchComment}>
+//           <Text style={{ fontSize: 13, fontWeight: '300' }}>호텔</Text>
+//         </View>
+//         <View style={styles.close}>
+//           <AntDesign name="close" size={12} style={styles.closeBtn} />
+//         </View>
+//       </View>
+//     </View>
+//   );
+// };
+
+const RecentSearches = ({ recentSearch, setRecentSearch }) => {
+  const updateList = (data) => {
+    const lists = recentSearch.map((item) => {
+      return item.id === data.id ? data : item;
+    });
+    setRecentSearch(lists);
+  };
+
+  const handleOnDelete = (e, index) => {
+    const deleteList = recentSearch.splice(index, 1);
+    updateList(deleteList);
+  };
+  const _renderItem = (item, index) => {
+    return (
+      <View style={styles.searchBox}>
+        <View style={styles.searchComment}>
+          <Text style={{ fontSize: 13, fontWeight: '300' }}>{item.title}</Text>
+        </View>
+        <TouchableOpacity style={styles.close} onPress={(_, e) => handleOnDelete(e, index)}>
+          <AntDesign name="close" id={item.id} size={12} style={styles.closeBtn} />
+        </TouchableOpacity>
+      </View>
+    );
+  };
+
   return (
-    <View style={styles.searchContainer}>
+    <Container>
       <View>
         <Text style={{ color: colors.defaultgray, fontSize: 12 }}>최근 검색어</Text>
       </View>
-      <View style={styles.searchBox}>
-        <View style={styles.searchComment}>
-          <Text style={{ fontSize: 13, fontWeight: '300' }}>호텔</Text>
-        </View>
-        <View style={styles.close}>
-          <AntDesign name="close" size={12} style={styles.closeBtn} />
-        </View>
-      </View>
-    </View>
+      <FlatList data={recentSearch} renderItem={({ item, index }) => _renderItem(item, index)} keyExtractor={(item) => item.id} />
+    </Container>
   );
 };
 
@@ -65,6 +122,8 @@ const PopularSearches = () => {
 
 export default function Search() {
   const [click, setClick] = useState(false);
+  const [recentSearch, setRecentSearch] = useState([]);
+  const [searchTitle, setSearchTitle] = useState('');
   return (
     <View style={styles.wrap}>
       {/* <ScrollView>
@@ -81,10 +140,17 @@ export default function Search() {
         </View>
       </ScrollView> */}
       <SafeAreaView style={styles.viewContainer}>
-        <TextInputBox click={click} setClick={setClick} />
+        <TextInputBox
+          click={click}
+          setClick={setClick}
+          searchTitle={searchTitle}
+          setSearchTitle={setSearchTitle}
+          recentSearch={recentSearch}
+          setRecentSearch={setRecentSearch}
+        />
         <View style={styles.container}>
           <GoToModal />
-          <RecentSearches />
+          <RecentSearches recentSearch={recentSearch} setRecentSearch={setRecentSearch} />
           <PopularSearches />
         </View>
       </SafeAreaView>
@@ -176,3 +242,5 @@ const styles = StyleSheet.create({
     color: colors.defaultgray,
   },
 });
+
+const Container = styled.View``;

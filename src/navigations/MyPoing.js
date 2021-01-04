@@ -1,18 +1,15 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import SearchTest from '../screens/SearchTest';
+import styled from 'styled-components/native';
 
 export default function MyPoing() {
-  return (
-    <View style={styles.wrap}>
-      <Text>안녕 난 마이포잉</Text>
-    </View>
-  );
+  return <SearchTest />;
 }
 
-const styles = StyleSheet.create({
-  wrap: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-});
+const ViewContainer = styled(View)`
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  background-color: blue;
+`;

@@ -73,7 +73,6 @@ const styles = StyleSheet.create({
     marginHorizontal: 20,
   },
   logoTitleWrap: {
-    flex: 0,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
