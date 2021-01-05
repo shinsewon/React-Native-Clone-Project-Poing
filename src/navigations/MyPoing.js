@@ -1,10 +1,10 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import SearchTest from '../screens/SearchTest';
+import { StyleSheet, Text, View, SafeAreaView } from 'react-native';
+// import SearchTest from './Search';
 import styled from 'styled-components/native';
 
 export default function MyPoing() {
-  return <SearchTest />;
+  return <></>;
 }
 
 const ViewContainer = styled(View)`
