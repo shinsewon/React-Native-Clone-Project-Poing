@@ -34,7 +34,7 @@ export default function ItemCard() {
     <View style={styles.wrap}>
       <FlatList
         data={RECOMMENDATION_RESTAURANT}
-        keyExtractor={(item) => item.id}
+        keyExtractor={(item) => item.id.toString()}
         horizontal={true}
         showsHorizontalScrollIndicator={false}
         renderItem={({ item }) => renderItem(item)}

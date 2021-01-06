@@ -18,7 +18,7 @@ export default function TotalFoodCard() {
     <View style={styles.wrap}>
       <FlatList
         data={TOTAL_FOOD_PICTURE}
-        keyExtractor={(item) => item.id}
+        keyExtractor={(item) => item.id.toString()}
         horizontal={true}
         showsHorizontalScrollIndicator={false}
         renderItem={({ item }) => renderItem(item)}

@@ -23,7 +23,7 @@ export default function AwardsCard() {
     <View style={styles.wrap}>
       <FlatList
         data={awardsCard}
-        keyExtractor={(item) => item.id}
+        keyExtractor={(item) => item.id.toString()}
         horizontal={true}
         showsHorizontalScrollIndicator={false}
         renderItem={({ item }) => renderItem(item)}

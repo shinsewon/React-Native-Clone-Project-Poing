@@ -1,3 +1,6 @@
+export const MOCKDATA =
+  'https://gist.githubusercontent.com/shinsewon/206b9c90c66437e0136395c103a7e923/raw/0972057b3b53e745e8d00476ddc401f8f50986e7/gistfile1.txt';
+
 export const MAIN_PICTURE = [
   {
     id: 1,

@@ -5,10 +5,15 @@ import { EvilIcons } from 'react-native-vector-icons';
 import Section from '../components/Section';
 import StoreInfomation from '../components/DetialRestaurant/StoreInformation';
 
-const TitleText = () => {
+const TitleText = ({ paramData, routeIdx }) => {
+  console.log('나는 paramData >>', paramData[routeIdx]);
+  // console.log('나는 routeIdx >>', routeIdx);
+
+  // console.log(fetchData[routeIdx].name);
+
   return (
     <View style={styles.titleText}>
-      <Text style={{ fontSize: 22, fontWeight: '500', lineHeight: 33 }}>스터번</Text>
+      <Text style={{ fontSize: 22, fontWeight: '500', lineHeight: 33 }}>{paramData[0].name}</Text>
       <Text style={styles.description}>역삼동에 위치한 편안하게 즐기기 좋은 아메리칸 비스트로</Text>
       <Text style={styles.description}>서울 강남역 ∙ ₩ (1~5만원, 2인 기준)</Text>
     </View>
@@ -41,7 +46,7 @@ const GradeBox = () => {
   );
 };
 
-export default function DetailRestaurant() {
+export default function DetailRestaurant({ paramData, routeIdx }) {
   const SectionProps = {
     title: '매장 정보',
     subTitle: '정보 수정 요청',
@@ -53,7 +58,7 @@ export default function DetailRestaurant() {
 
   return (
     <SafeAreaView style={styles.wrap}>
-      <TitleText />
+      <TitleText paramData={paramData} routeIdx={routeIdx} />
       <GradeBox />
       <Section {...SectionProps} />
       <StoreInfomation />

@@ -96,7 +96,7 @@ const RecentSearches = ({ recentSearch, setRecentSearch }) => {
       <View>
         <Text style={{ color: colors.defaultgray, fontSize: 12 }}>최근 검색어</Text>
       </View>
-      <FlatList data={recentSearch} renderItem={({ item, index }) => _renderItem(item, index)} keyExtractor={(item) => item.id} />
+      <FlatList data={recentSearch} renderItem={({ item, index }) => _renderItem(item, index)} keyExtractor={(item) => item.id.toString()} />
     </Container>
   );
 };
@@ -126,19 +126,6 @@ export default function Searchss() {
   const [searchTitle, setSearchTitle] = useState('');
   return (
     <View style={styles.wrap}>
-      {/* <ScrollView>
-        <View style={styles.cardView}>
-          <AntDesign name="left" size={25} style={{ color: '#fff', marginLeft: 10 }} />
-          <View style={styles.rightView}>
-            <AntDesign name="hearto" size={25} style={{ color: '#fff', marginRight: 15 }} />
-            <Feather name="share" size={25} style={{ color: '#fff', marginRight: 15 }} />
-          </View>
-        </View>
-        <MainSlide />
-        <View style={styles.container}>
-          <DetailRestaurant />
-        </View>
-      </ScrollView> */}
       <SafeAreaView style={styles.viewContainer}>
         <TextInputBox
           click={click}
@@ -165,21 +152,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#fff',
   },
-  container: {
-    flex: 1,
-    marginHorizontal: 30,
-  },
-  cardView: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    position: 'absolute',
-    top: 50,
-    width: '100%',
-    zIndex: 9,
-  },
-  rightView: {
-    flexDirection: 'row',
-  },
+
   viewContainer: {
     flex: 1,
     width: '100%',

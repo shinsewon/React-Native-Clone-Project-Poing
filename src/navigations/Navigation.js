@@ -8,6 +8,7 @@ import HomeScreen from '../components/homeScreen/HomeScreen';
 import MyPoing from './MyPoing';
 import Search from './Search';
 import Tiket from './Tiket';
+import SearchPage from '../screens/SearchPage';
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -58,6 +59,7 @@ export default function Navigation() {
           component={TabNavigator}
         />
         {/* <Stack.Screen name="Home" component={Top} options={{ title: 'My home' }} /> */}
+        <Stack.Screen name="SearchPage" component={SearchPage} />
       </Stack.Navigator>
     </NavigationContainer>
   );

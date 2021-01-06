@@ -4,11 +4,12 @@ import { StyleSheet, View, FlatList, ActivityIndicator, TouchableOpacity } from 
 import { Container, Header, Item, Input, Icon, Button, Text, List, ListItem, Left, Body, Right, Thumbnail } from 'native-base';
 import _ from 'lodash';
 import { colors } from '../styles/color/Color';
-import { SEARCH_DATA, POPULAR_SEARCHES } from '../data/data';
+import { POPULAR_SEARCHES, MOCKDATA } from '../data/data';
 import { AntDesign } from 'react-native-vector-icons';
-import { color } from 'react-native-reanimated';
 
-export default function Search() {
+console.log('MOCKDATA>>', MOCKDATA);
+
+export default function Search({ navigation }) {
   const [data, setData] = useState([]);
   const [fullData, setFullData] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -19,6 +20,8 @@ export default function Search() {
   const [recentSearch, setRecentSearch] = useState([]);
   const [searchTitle, setSearchTitle] = useState('');
   const [Id, setId] = useState(0);
+
+  const goToNavigation = navigation.navigate;
 
   useEffect(() => {
     fetchAPIPhotos();
@@ -44,28 +47,28 @@ export default function Search() {
 
   const fetchAPIPhotos = _.debounce(() => {
     setLoading(true);
-    // fetch('http://jsonplaceholder.typicode.com/photos?_limit=30')
-    //   .then((res) => res.json())
-    //   .then((res) => {
-    //     setLoading(false);
-    //     setData(res);
-    //     setFullData(res);
-    //   })
-    //   .catch((error) => {
-    //     setError(error), setLoading(false);
-    //   });
-    setLoading(false);
-    setData(SEARCH_DATA);
-    setFullData(SEARCH_DATA);
+    fetch(MOCKDATA)
+      .then((res) => res.json())
+      .then((res) => {
+        setLoading(false);
+        setData(res);
+        setFullData(res);
+      })
+      .catch((error) => {
+        setError(error), setLoading(false);
+      });
   }, 250);
 
-  const goToDetail = () => {
-    console.log('되나');
+  const goToDetail = (item, index) => {
+    goToNavigation('SearchPage', {
+      index,
+      data,
+    });
   };
 
   const _renderItem = ({ item, index }) => {
     return (
-      <ListItem avatar onPress={goToDetail}>
+      <ListItem avatar onPress={(item) => goToDetail(item, index)}>
         <Left>
           <Thumbnail source={{ uri: item.img }} />
         </Left>
@@ -147,7 +150,11 @@ export default function Search() {
         <View>
           <Text style={{ color: colors.defaultgray, fontSize: 12 }}>최근 검색어</Text>
         </View>
-        <FlatList data={recentSearch} renderItem={({ item, index }) => _renderRecentSearches(item, index)} keyExtractor={(item) => item.id} />
+        <FlatList
+          data={recentSearch}
+          renderItem={({ item, index }) => _renderRecentSearches(item, index)}
+          keyExtractor={(item) => item.id.toString()}
+        />
       </View>
     );
   };
@@ -201,7 +208,13 @@ export default function Search() {
       </Header>
       {typing ? (
         <List>
-          <FlatList data={data} renderItem={_renderItem} keyExtractor={(item, index) => index.toString()} ListFooterComponent={_renderFooter} />
+          <FlatList
+            data={data}
+            renderItem={_renderItem}
+            keyExtractor={(item, index) => index.toString()}
+            ListFooterComponent={_renderFooter}
+            navigation={navigation}
+          />
         </List>
       ) : null}
 

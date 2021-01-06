@@ -3,15 +3,21 @@ import { StyleSheet, View, Image, Dimensions } from 'react-native';
 import Carousel from 'react-native-snap-carousel';
 import { MAIN_PICTURE } from '../../data/data';
 
-export default function MainSlide() {
+export default function MainSlide({ paramsImg }) {
+  console.log('paramsImg222>>', paramsImg);
+
   const cardRef = useRef();
   const handleRenderItem = ({ item, index }) => {
+    console.log(item.src);
     return (
       <View style={styles.slide}>
         <Image source={item.src} resizeMode="repeat" style={styles.slideInnerContainer} />
       </View>
     );
   };
+
+  // 이 부분 나중에 scrollView 나 flatList해서 만들어서 다시해, 캐러쉘 안좋아
+  // const titleImg = MAIN_PICTURE.unshift({ id: 0, title: 'Picture0', src: { uri: 'https://ifh.cc/g/Iven7Q.jpg' } });
 
   return (
     <Carousel
@@ -21,7 +27,7 @@ export default function MainSlide() {
       sliderWidth={sliderWidth}
       itemWidth={itemWidth}
       renderItem={handleRenderItem}
-      slideStyle={{ backgroundColor: 'blue', height: 400 }}
+      slideStyle={{ height: 400 }}
     />
   );
 }
