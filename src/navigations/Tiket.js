@@ -1,10 +1,11 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import TiketMain from '../screens/TiketMain';
 
 export default function Tiket() {
   return (
     <View style={styles.wrap}>
-      <Text>나는 티켓입니다</Text>
+      <TiketMain />
     </View>
   );
 }
@@ -14,5 +15,6 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    backgroundColor: 'white',
   },
 });
