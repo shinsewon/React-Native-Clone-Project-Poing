@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 import { StyleSheet, Text, View, SafeAreaView, ScrollView, FlatList, TouchableOpacity, Image } from 'react-native';
-import { Container, Header, Item, Input, Icon, Button, List, ListItem, Left, Body, Right, Thumbnail } from 'native-base';
 import { TIKET_LIST } from '../data/data';
 import { colors } from '../styles/color/Color';
 import { AntDesign } from 'react-native-vector-icons';
+import Modal from '../components/Modal/Modal';
 
 export default function TiketMain() {
   const ChoiceTiket = () => (
@@ -63,6 +63,10 @@ export default function TiketMain() {
     return <FlatList data={TIKET_LIST} keyExtractor={(item) => item.id.toString()} renderItem={({ item }) => renderItem(item)} />;
   };
 
+  const ModalMap = () => {
+    return <Modal />;
+  };
+
   return (
     <SafeAreaView style={styles.wrap}>
       <ScrollView>
@@ -72,6 +76,9 @@ export default function TiketMain() {
         <ChoiceTiket />
         <TiketList />
       </ScrollView>
+      <View style={styles.modalContainer}>
+        <ModalMap />
+      </View>
     </SafeAreaView>
   );
 }
@@ -192,6 +199,10 @@ const styles = StyleSheet.create({
   restaurantName: {
     // height: 16,
     // backgroundColor: 'green',
+  },
+  modalContainer: {
+    position: 'absolute',
+    bottom: 10,
   },
 });
 

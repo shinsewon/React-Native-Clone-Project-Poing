@@ -247,8 +247,11 @@ export const SEARCH_DATA = [
   {
     id: 1,
     name: '세원스시',
-    img: 'https://ifh.cc/g/Iven7Q.jpg',
+    src: require('../assert/image/recommendation_restaurant/itemCard1.png'),
     description: '회 뜨는 솜씨가 일품인 세원 스시',
+    area: '서울',
+    place: '압구정',
+    food: '일식',
     location: {
       longitude: 127.06282658463165,
       latitude: 37.50653612386749,
@@ -258,8 +261,11 @@ export const SEARCH_DATA = [
   {
     id: 2,
     name: '공주가왕',
-    img: 'https://ifh.cc/g/f761R5.jpg',
+    src: require('../assert/image/recommendation_restaurant/itemCard2.png'),
     description: '공주가 직접 만들어 왕(손님)에게 바치는 음식!',
+    area: '서울',
+    place: '압구정',
+    food: '한식',
     location: {
       longitude: 127.03859279833283,
       latitude: 37.52422062479814,
@@ -270,8 +276,11 @@ export const SEARCH_DATA = [
   {
     id: 3,
     name: '해수새우',
-    img: 'https://ifh.cc/g/H7m5BV.jpg',
+    src: require('../assert/image/recommendation_restaurant/itemCard4.png'),
     description: '해수가 손님을 접을수 없어 새우를 직접 접어 대박친 그 곳',
+    area: '서울',
+    place: '압구정',
+    food: '일식',
     location: {
       longitude: 127.04495036949682,
       latitude: 37.525103822254536,
@@ -281,8 +290,11 @@ export const SEARCH_DATA = [
   {
     id: 4,
     name: '상혁부장의 불타는 주먹고기',
-    img: 'https://ifh.cc/g/PJjq7Q.jpg',
+    src: require('../assert/image/recommendation_restaurant/itemCard5.png'),
     description: '부장님의 불타는 주먹 맛 좀 볼래?',
+    area: '서울',
+    place: '압구정',
+    food: '일식',
     location: {
       longitude: 127.02947385600464,
       latitude: 37.52394476109264,
@@ -292,8 +304,11 @@ export const SEARCH_DATA = [
   {
     id: 5,
     name: '델리문주',
-    img: 'https://ifh.cc/g/tFOLif.jpg',
+    src: require('../assert/image/recommendation_restaurant/itemCard6.png'),
     description: '문주찡의 델리델리한 델리만쥬❤️',
+    area: '서울',
+    place: '압구정',
+    food: '일식',
     location: {
       longitude: 127.03787395230144,
       latitude: 37.51844290877626,
@@ -303,8 +318,11 @@ export const SEARCH_DATA = [
   {
     id: 6,
     name: '태현초밥',
-    img: 'https://ifh.cc/g/7qliRM.jpg',
+    src: require('../assert/image/recommendation_restaurant/itemCard1.png'),
     description: '당신 와서 초밥 좀 먹고가',
+    area: '서울',
+    place: '압구정',
+    food: '일식',
     location: {
       longitude: 127.03792486949702,
       latitude: 37.523779824409964,
@@ -314,8 +332,11 @@ export const SEARCH_DATA = [
   {
     id: 7,
     name: '현지선생',
-    img: 'https://ifh.cc/g/rUwef6.jpg',
+    src: require('../assert/image/recommendation_restaurant/itemCard2.png'),
     description: '응급환자들도 여기 메뉴 먹으면 바로 살아나요',
+    area: '서울',
+    place: '압구정',
+    food: '일식',
     location: {
       longitude: 127.03628478298869,
       latitude: 37.50831326632004,
@@ -327,8 +348,11 @@ export const SEARCH_DATA = [
   {
     id: 10,
     name: '영구이석쇠',
-    img: 'https://ifh.cc/g/QP8ieW.jpg',
+    src: require('../assert/image/recommendation_restaurant/itemCard3.png'),
     description: '의문의 그 식당..석화구이가 일품이라는데..',
+    area: '서울',
+    place: '압구정',
+    food: '일식',
     location: {
       longitude: 126.99493370183042,
       latitude: 37.53415446415366,
@@ -338,8 +362,11 @@ export const SEARCH_DATA = [
   {
     id: 11,
     name: '박중위의 태양의 불맛',
-    img: 'https://ifh.cc/g/5MID.jpg',
-    description: '박중위는 실망했다. 그래서 내가 만들기로 했다. 뜨거운 불 맛을',
+    src: require('../assert/image/recommendation_restaurant/itemCard4.png'),
+    description: '박중위는 실망했다. 그래서 내가 만들기로 했다.',
+    area: '서울',
+    place: '압구정',
+    food: '일식',
     location: {
       longitude: 126.99483544251281,
       latitude: 37.5376747096563,
@@ -349,8 +376,11 @@ export const SEARCH_DATA = [
   {
     id: 12,
     name: '동하이라이스',
-    img: 'https://ifh.cc/g/ldrqiB.jpg',
+    src: require('../assert/image/recommendation_restaurant/itemCard5.png'),
     description: '여기서 먹은 후, 더는 먹어볼 하이라이스가 없었다',
+    area: '서울',
+    place: '압구정',
+    food: '일식',
     location: {
       longitude: 126.99428827188011,
       latitude: 37.53528407470684,
@@ -360,8 +390,11 @@ export const SEARCH_DATA = [
   {
     id: 13,
     name: '지혜스파게티',
-    img: 'https://ifh.cc/g/F3xRkd.jpg',
+    src: require('../assert/image/recommendation_restaurant/itemCard6.png'),
     description: '지혜로운 여자의 지혜로운 면빨 기가 막혀요',
+    area: '서울',
+    place: '압구정',
+    food: '일식',
     location: {
       longitude: 126.99662111191111,
       latitude: 37.53097435365625,
@@ -371,8 +404,11 @@ export const SEARCH_DATA = [
   {
     id: 14,
     name: '은정정',
-    img: 'https://ifh.cc/g/Iven7Q.jpg',
+    src: require('../assert/image/totalFood/brunch.png'),
     description: '이 집이 그렇게 중독성이 강하다며?',
+    area: '서울',
+    place: '압구정',
+    food: '일식',
     location: {
       longitude: 126.99650275600406,
       latitude: 37.49809839550952,
@@ -388,8 +424,12 @@ export const SEARCH_DATA = [
   {
     id: 21,
     name: '나무에서 먹는 한정식',
-    img: 'https://ifh.cc/g/H7m5BV.jpg',
+    src: require('../assert/image/totalFood/fine_dining.jpg'),
+
     description: '이쁜 나무곁에서 한정식 어때요?',
+    area: '서울',
+    place: '압구정',
+    food: '일식',
     location: {
       longitude: 126.99687562113462,
       latitude: 37.53285274977163,

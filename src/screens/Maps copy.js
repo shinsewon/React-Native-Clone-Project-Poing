@@ -2,56 +2,45 @@ import React, { useState, useEffect, useRef } from 'react';
 import { StyleSheet, Text, View, Dimensions, Animated, Image, SafeAreaView } from 'react-native';
 import Carousel from 'react-native-snap-carousel';
 import { StatusBar } from 'expo-status-bar';
-import MapView, { Marker, AnimatedRegion, PROVIDER_GOOGLE } from 'react-native-maps';
+import MapView, { Marker, AnimatedRegion } from 'react-native-maps';
 import * as Location from 'expo-location';
 import { FontAwesome5 } from 'react-native-vector-icons';
 import { colors } from '../styles/color/Color';
 import { SEARCH_DATA } from '../data/data';
 
-const { width, height } = Dimensions.get('window');
-const CARD_HEIGHT = 220;
-const CARD_WIDTH = width * 0.8;
-const SPACING_FOR_CARD_INSET = width * 0.1 - 10;
+const { width, height } = Dimensions.get('screen');
 
 export default function Maps(props) {
   const [errorMsg, setErrorMsg] = useState(null);
   const [mapRegin, setMapRegin] = useState(null);
 
+  const CARD_HEIGHT = 220;
+  const CARD_WIDTH = width * 0.8;
+  const SPACING_FOR_CARD_INSET = width * 0.1 - 10;
+
   const cardRef = useRef(null);
   const _scrollView = useRef(null);
-
-  // const onMarkerPress = (mapEventData) => {
-  //   const markerID = mapEventData._targetInst.return.key;
-
-  //   let x = markerID * CARD_WIDTH + markerID * 20;
-  //   if (Platform.OS === 'ios') {
-  //     x = x - SPACING_FOR_CARD_INSET;
-  //   }
-
-  //   _scrollView.current.scrollTo({ x: x, y: 0, animated: true });
-  // };
-
   let mapIndex = 0;
   let mapAnimation = new Animated.Value(0);
 
   useEffect(() => {
     mapAnimation.addListener(({ value }) => {
       let index = Math.floor(value / CARD_WIDTH + 0.3);
-
-      if (index >= SEARCH_DATA.length) {
+      if (index >= SEARCH_DATA) {
         index = SEARCH_DATA.length - 1;
       }
       if (index <= 0) {
         index = 0;
       }
       clearTimeout(regionTimeout);
+
       const regionTimeout = setTimeout(() => {
         if (mapIndex !== index) {
           mapIndex = index;
-          const { location } = SEARCH_DATA[index];
-          cardRef.current.animateToRegion(
+          const { coordinate } = SEARCH_DATA[index];
+          cardRef.current.AnimatedRegion(
             {
-              ...location,
+              ...coordinate,
               latitudeDelta: mapRegin.latitudeDelta,
               longitudeDelta: mapRegin.longitudeDelta,
             },
@@ -103,27 +92,10 @@ export default function Maps(props) {
     );
   };
 
-  const interpolations = SEARCH_DATA.map((item, index) => {
-    const inputRange = [(index - 1) * CARD_WIDTH, index * CARD_WIDTH, (index + 1) * CARD_WIDTH];
-
-    const scale = mapAnimation.interpolate({
-      inputRange,
-      outputRange: [1, 1.5, 1],
-      extrapolate: 'clamp',
-    });
-
-    return { scale };
-  });
-
   return (
     <View style={styles.wrap}>
       <StatusBar style="dark" />
-      <MapView
-        initialRegion={mapRegin}
-        style={styles.mapView}
-        ref={cardRef}
-        provider={PROVIDER_GOOGLE}
-      >
+      <MapView initialRegion={mapRegin} style={styles.mapView}>
         <Marker coordinate={mapRegin} title="나" description="본인">
           <View style={styles.circle}>
             <View style={styles.stroke} />
@@ -131,34 +103,16 @@ export default function Maps(props) {
           </View>
         </Marker>
         {SEARCH_DATA
-          ? SEARCH_DATA.map((item, index) => {
-              const scaleStyle = {
-                transform: [
-                  {
-                    scale: interpolations[index].scale,
-                  },
-                ],
-              };
-              return (
-                <MapView.Marker
-                  key={item.id}
-                  coordinate={item.location}
-                  title={item.name}
-                  description={item.description}
-                >
-                  {/* <FontAwesome5
-                    name={item.icon}
-                    size={item.id === index ? 26 : 26}
-                    color={colors.defaultRed}
-                  /> */}
-                  <Animated.Image
-                    source={require('../assert/image/map_marker.png')}
-                    style={[styles.marker, scaleStyle]}
-                    resizeMode="cover"
-                  />
-                </MapView.Marker>
-              );
-            })
+          ? SEARCH_DATA.map((item) => (
+              <Marker
+                key={item.id}
+                coordinate={item.location}
+                title={item.name}
+                description={item.description}
+              >
+                <FontAwesome5 name={item.icon} size={26} color={colors.defaultRed} />
+              </Marker>
+            ))
           : null}
       </MapView>
       {/* <Animated.ScrollView horizontal scrollEventThrottle={1} showsHorizontalScrollIndicator={false} style={styles.scrollView}>
@@ -177,24 +131,11 @@ export default function Maps(props) {
         ))}
       </Animated.ScrollView> */}
       <Animated.ScrollView
-        horizontal
-        pagingEnabled
-        conterContent={true}
-        scrollEventThrottle={0}
+        scrollEventThrottle={1}
         style={styles.cardSlider}
         showsHorizontalScrollIndicator={false}
         snapToInterval={CARD_WIDTH + 20}
         snapToAlignment="center"
-        disableIntervalMomentum={true}
-        contentInset={{
-          top: 0,
-          left: SPACING_FOR_CARD_INSET,
-          bottom: 0,
-          right: SPACING_FOR_CARD_INSET,
-        }}
-        contentContainerStyle={{
-          paddingHorizontal: Platform.OS === 'android' ? SPACING_FOR_CARD_INSET : 0,
-        }}
         onScroll={Animated.event(
           [
             {
@@ -208,26 +149,16 @@ export default function Maps(props) {
           { useNativeDriver: true }
         )}
       >
-        {SEARCH_DATA.map((item, index) => (
-          <View style={styles.card2} key={item.id}>
-            <View style={styles.imgContainer}>
-              <View style={{ height: 40, width: 40 }}>
-                <Image source={item.src} style={styles.cardImage} />
-              </View>
-            </View>
-            <View style={styles.textContent}>
-              <Text numberOfLines={1} style={styles.cardTitle}>
-                {item.name}
-              </Text>
-              <Text numberOfLines={1} style={styles.cardDescription}>
-                {item.description}
-              </Text>
-              <Text numberOfLines={1} style={styles.cardDescription}>
-                {item.area} {item.place} ∙ {item.food}
-              </Text>
-            </View>
-          </View>
-        ))}
+        <Carousel
+          data={SEARCH_DATA}
+          layout={'default'}
+          ref={cardRef}
+          sliderWidth={350}
+          itemWidth={300}
+          renderItem={handleRenderItem}
+
+          // slideStyle={{ marginLeft: -2 }}
+        />
       </Animated.ScrollView>
     </View>
   );
@@ -275,10 +206,6 @@ const styles = StyleSheet.create({
     zIndex: 3,
     borderRadius: 50,
   },
-  marker: {
-    width: 30,
-    height: 30,
-  },
   card: {
     flexDirection: 'row',
     height: 70,
@@ -286,28 +213,6 @@ const styles = StyleSheet.create({
     // borderColor: 'red',
     backgroundColor: 'white',
     borderRadius: 6,
-    marginRight: 10,
-  },
-  card2: {
-    width: CARD_WIDTH,
-    flexDirection: 'row',
-    height: 70,
-    backgroundColor: 'white',
-    borderRadius: 6,
-    // marginRight: 10,
-    // marginLeft: 10,
-    // elevation: 2,
-    // backgroundColor: '#FFF',
-    // borderTopLeftRadius: 5,
-    // borderTopRightRadius: 5,
-    marginHorizontal: 10,
-    // shadowColor: '#000',
-    // shadowRadius: 5,
-    // shadowOpacity: 0.3,
-    // shadowOffset: { x: 2, y: -2 },
-    // // height: CARD_HEIGHT,
-    // width: CARD_WIDTH,
-    // overflow: 'hidden',
   },
   imgContainer: {
     justifyContent: 'center',

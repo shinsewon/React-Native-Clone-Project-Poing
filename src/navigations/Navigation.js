@@ -42,7 +42,7 @@ const TabNavigator = () => {
       <Tab.Screen name="홈" component={HomeScreen} />
       <Tab.Screen name="검색" component={Search} />
       <Tab.Screen name="티켓" component={Tiket} />
-      <Tab.Screen name="마이포잉" component={Maps} options={{ tabBarBadge: 6 }} />
+      <Tab.Screen name="마이포잉" component={Maps} options={{ tabBarBadge: 5 }} />
     </Tab.Navigator>
   );
 };
