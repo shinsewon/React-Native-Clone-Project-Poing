@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, TextInput, View, Image } from 'react-native';
-import { AntDesign, MaterialIcons, Ionicons } from 'react-native-vector-icons';
+import { AntDesign, MaterialIcons } from 'react-native-vector-icons';
+import { Ionicons } from '@expo/vector-icons';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -9,6 +10,7 @@ import MyPoing from './MyPoing';
 import Search from './Search';
 import Tiket from './Tiket';
 import SearchPage from '../screens/SearchPage';
+import Maps from '../screens/Maps';
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -40,7 +42,7 @@ const TabNavigator = () => {
       <Tab.Screen name="홈" component={HomeScreen} />
       <Tab.Screen name="검색" component={Search} />
       <Tab.Screen name="티켓" component={Tiket} />
-      <Tab.Screen name="마이포잉" component={MyPoing} options={{ tabBarBadge: 6 }} />
+      <Tab.Screen name="마이포잉" component={Maps} options={{ tabBarBadge: 6 }} />
     </Tab.Navigator>
   );
 };
