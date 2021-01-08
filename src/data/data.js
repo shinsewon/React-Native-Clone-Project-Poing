@@ -1,5 +1,5 @@
 export const MOCKDATA =
-  'https://gist.githubusercontent.com/shinsewon/206b9c90c66437e0136395c103a7e923/raw/0972057b3b53e745e8d00476ddc401f8f50986e7/gistfile1.txt';
+  'https://gist.githubusercontent.com/shinsewon/206b9c90c66437e0136395c103a7e923/raw/4edd3b4ed4fda75fd9ce6052232d3696eb12f21b/gistfile1.txt';
 
 export const MAIN_PICTURE = [
   {
@@ -178,7 +178,7 @@ export const RECOMMENDATION_RESTAURANT = [
   {
     id: 4,
     title: '볼트 스테이크하우스',
-    description: '청담ㄷㅇ에 위치한 드라이에이징 스테이크를 즐길 수 있는 고급스러운 맛집',
+    description: '청담동에 위치한 드라이에이징 스테이크를 즐길 수 있는 고급스러운 맛집',
     place: '청담동∙아메리칸',
     score: '4.0',
     comments: '432',
@@ -343,8 +343,34 @@ export const SEARCH_DATA = [
     },
     icon: 'map-marker-alt',
   },
-  { id: 8, name: '영환절기엔고기', img: 'https://ifh.cc/g/UnEVU4.jpg' },
-  { id: 9, name: '민구주먹다짐고기', img: 'https://ifh.cc/g/TVtXRB.jpg' },
+  {
+    id: 8,
+    name: '영환절기엔고기',
+    src: require('../assert/image/tiketList/tiket1.png'),
+    description: '규맨 이 고기집 어때?',
+    area: '서울',
+    place: '압구정',
+    food: '일식',
+    location: {
+      longitude: 127.04453045001685,
+      latitude: 37.48522767189708,
+    },
+    icon: 'map-marker-alt',
+  },
+  {
+    id: 9,
+    name: '민구주먹다짐고기',
+    src: require('../assert/image/totalFood/brunch.png'),
+    description: '강동원도 인정한 그 맛집 주먹 다짐 고기',
+    area: '서울',
+    place: '압구정',
+    food: '일식',
+    location: {
+      longitude: 126.9791906117389,
+      latitude: 37.474784001520554,
+    },
+    icon: 'map-marker-alt',
+  },
   {
     id: 10,
     name: '영구이석쇠',
@@ -415,17 +441,99 @@ export const SEARCH_DATA = [
     },
     icon: 'map-marker-alt',
   },
-  { id: 15, name: '수희희락락스시', img: 'http://dummyimage.com/214x126.png/cc0000/ffffff' },
-  { id: 16, name: '승진짜존맛스시', img: 'https://ifh.cc/g/H7m5BV.jpg' },
-  { id: 17, name: '현석화굴', img: 'https://ifh.cc/g/QP8ieW.jpg' },
-  { id: 18, name: '성보릿굴비', img: 'https://ifh.cc/g/F3xRkd.jpg' },
-  { id: 19, name: '장재원의 천재들만 먹을수있는 식당 ', img: 'https://ifh.cc/g/TVtXRB.jpg' },
-  { id: 20, name: '재훈재훈제오리고기', img: 'https://ifh.cc/g/UnEVU4.jpg' },
+  {
+    id: 15,
+    name: '수희희락락스시',
+    src: require('../assert/image/totalFood/brunch.png'),
+    description: '수희희희 마시쪙',
+    area: '서울',
+    place: '압구정',
+    food: '일식',
+    location: {
+      longitude: 127.05512976860559,
+      latitude: 37.50200241434894,
+    },
+
+    icon: 'map-marker-alt',
+  },
+  {
+    id: 16,
+    name: '승진짜존맛스시',
+    src: require('../assert/image/recommendation_restaurant/itemCard6.png'),
+    description: '승진님이 만든 진짜 존맛 스시',
+    area: '서울',
+    place: '압구정',
+    food: '일식',
+    location: {
+      longitude: 127.03690794423818,
+      latitude: 37.484408096887925,
+    },
+    icon: 'map-marker-alt',
+  },
+  {
+    id: 17,
+    name: '현석화굴비',
+    src: require('../assert/image/recommendation_restaurant/itemCard6.png'),
+    description: '전직 셰프가 만든 석화굴비',
+    area: '서울',
+    place: '압구정',
+    food: '일식',
+    location: {
+      longitude: 126.05510116860559,
+      latitude: 37.50200241434894,
+    },
+
+    icon: 'map-marker-alt',
+  },
+  {
+    id: 18,
+    name: '성보릿굴비',
+    src: require('../assert/image/tiketList/tiket1.png'),
+    description: '성보가 먹고싶은 보리굴비',
+    area: '서울',
+    place: '압구정',
+    food: '일식',
+    location: {
+      longitude: 127.0690071425143,
+      latitude: 37.48917346969665,
+    },
+
+    icon: 'map-marker-alt',
+  },
+  {
+    id: 19,
+    name: '장재원의 천재들만 먹을수있는 식당 ',
+    src: require('../assert/image/tiketList/tiket3.jpg'),
+    description: '천재들만 먹을수 있다고요? 홀리 쉣~',
+    area: '서울',
+    place: '압구정',
+    food: '일식',
+    location: {
+      longitude: 127.05004535414787,
+      latitude: 37.47516600607591,
+    },
+
+    icon: 'map-marker-alt',
+  },
+  {
+    id: 20,
+    name: '재훈재훈제오리고기',
+    src: require('../assert/image/tiketList/tiket1.png'),
+    description: 'Do you know 훈제 duck?',
+    area: '서울',
+    place: '압구정',
+    food: '일식',
+    location: {
+      longitude: 127.05004535414787,
+      latitude: 37.47516600607591,
+    },
+
+    icon: 'map-marker-alt',
+  },
   {
     id: 21,
     name: '나무에서 먹는 한정식',
     src: require('../assert/image/totalFood/fine_dining.jpg'),
-
     description: '이쁜 나무곁에서 한정식 어때요?',
     area: '서울',
     place: '압구정',
@@ -433,6 +541,34 @@ export const SEARCH_DATA = [
     location: {
       longitude: 126.99687562113462,
       latitude: 37.53285274977163,
+    },
+    icon: 'map-marker-alt',
+  },
+  {
+    id: 22,
+    name: '영준마이 사케집',
+    src: require('../assert/image/totalFood/brunch.png'),
+    description: '준마이가서 이자카야 한잔 어때?',
+    area: '서울',
+    place: '압구정',
+    food: '일식',
+    location: {
+      longitude: 1127.0770045692725,
+      latitude: 37.48886790191728,
+    },
+    icon: 'map-marker-alt',
+  },
+  {
+    id: 23,
+    name: '왕자의 식탁',
+    src: require('../assert/image/totalFood/brunch.png'),
+    description: '프린스 기용이 직접 만든 왕자들만 먹는 식사',
+    area: '서울',
+    place: '압구정',
+    food: '일식',
+    location: {
+      longitude: 127.0670045692725,
+      latitude: 37.49886790191728,
     },
     icon: 'map-marker-alt',
   },

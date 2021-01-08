@@ -1,5 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import { StyleSheet, Text, View, ScrollView, SafeAreaView, TextInput, TouchableOpacity } from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  View,
+  ScrollView,
+  SafeAreaView,
+  TextInput,
+  TouchableOpacity,
+} from 'react-native';
 import DetailRestaurant from './DetailRestaurant';
 import MainSlide from '../components/DetialRestaurant/MainSlide';
 import { AntDesign, Feather } from 'react-native-vector-icons';
@@ -8,7 +16,8 @@ import { MOCKDATA } from '../data/data';
 export default function SearchPage({ navigation, route }) {
   const [fetchData, setFatchData] = useState([]);
 
-  const paramsImg = route.params.data[0].img;
+  // const paramsImg = route.params.data[0].src;
+  const paramsImg = route.params.data[0].src;
 
   const goToNavigation = navigation;
 

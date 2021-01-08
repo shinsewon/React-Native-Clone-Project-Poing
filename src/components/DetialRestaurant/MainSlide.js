@@ -4,11 +4,8 @@ import Carousel from 'react-native-snap-carousel';
 import { MAIN_PICTURE } from '../../data/data';
 
 export default function MainSlide({ paramsImg }) {
-  console.log('paramsImg222>>', paramsImg);
-
   const cardRef = useRef();
   const handleRenderItem = ({ item, index }) => {
-    console.log(item.src);
     return (
       <View style={styles.slide}>
         <Image source={item.src} resizeMode="repeat" style={styles.slideInnerContainer} />
@@ -17,7 +14,7 @@ export default function MainSlide({ paramsImg }) {
   };
 
   // 이 부분 나중에 scrollView 나 flatList해서 만들어서 다시해, 캐러쉘 안좋아
-  // const titleImg = MAIN_PICTURE.unshift({ id: 0, title: 'Picture0', src: { uri: 'https://ifh.cc/g/Iven7Q.jpg' } });
+  // const titleImg = MAIN_PICTURE.unshift({ id: 0, title: 'Picture0', src: { item } });
 
   return (
     <Carousel

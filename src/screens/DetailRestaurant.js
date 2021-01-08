@@ -6,11 +6,6 @@ import Section from '../components/Section';
 import StoreInfomation from '../components/DetialRestaurant/StoreInformation';
 
 const TitleText = ({ paramData, routeIdx }) => {
-  console.log('나는 paramData >>', paramData[routeIdx]);
-  // console.log('나는 routeIdx >>', routeIdx);
-
-  // console.log(fetchData[routeIdx].name);
-
   return (
     <View style={styles.titleText}>
       <Text style={{ fontSize: 22, fontWeight: '500', lineHeight: 33 }}>{paramData[0].name}</Text>
@@ -24,7 +19,14 @@ const GradeBox = () => {
   return (
     <View style={styles.gradebox}>
       <View style={styles.grade}>
-        <Rating startingValue={2} ratingCount={1} imageSize={13} showRating={false} readonly={true} tintColor={'#F4F2EE'} />
+        <Rating
+          startingValue={2}
+          ratingCount={1}
+          imageSize={13}
+          showRating={false}
+          readonly={true}
+          tintColor={'#F4F2EE'}
+        />
         <Text style={{ fontSize: 14, fontWeight: '500', marginLeft: 3 }}>3.8</Text>
       </View>
       <View style={[styles.grade, styles.text]}>

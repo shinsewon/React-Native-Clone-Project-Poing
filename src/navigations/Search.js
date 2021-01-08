@@ -1,13 +1,25 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components/native';
 import { StyleSheet, View, FlatList, ActivityIndicator, TouchableOpacity } from 'react-native';
-import { Container, Header, Item, Input, Icon, Button, Text, List, ListItem, Left, Body, Right, Thumbnail } from 'native-base';
+import {
+  Container,
+  Header,
+  Item,
+  Input,
+  Icon,
+  Button,
+  Text,
+  List,
+  ListItem,
+  Left,
+  Body,
+  Right,
+  Thumbnail,
+} from 'native-base';
 import _ from 'lodash';
 import { colors } from '../styles/color/Color';
 import { POPULAR_SEARCHES, MOCKDATA } from '../data/data';
 import { AntDesign } from 'react-native-vector-icons';
-
-console.log('MOCKDATA>>', MOCKDATA);
 
 export default function Search({ navigation }) {
   const [data, setData] = useState([]);
@@ -70,6 +82,7 @@ export default function Search({ navigation }) {
     return (
       <ListItem avatar onPress={(item) => goToDetail(item, index)}>
         <Left>
+          {/* <Thumbnail source={{ uri: item.img }} /> */}
           <Thumbnail source={{ uri: item.img }} />
         </Left>
         <Body>

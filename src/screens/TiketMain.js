@@ -1,6 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
-import { StyleSheet, Text, View, SafeAreaView, ScrollView, FlatList, TouchableOpacity, Image } from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  View,
+  SafeAreaView,
+  ScrollView,
+  FlatList,
+  TouchableOpacity,
+  Image,
+} from 'react-native';
 import { TIKET_LIST } from '../data/data';
 import { colors } from '../styles/color/Color';
 import { AntDesign } from 'react-native-vector-icons';
@@ -36,10 +45,14 @@ export default function TiketMain() {
           <View style={styles.bottomSaleContainer}>
             <View style={styles.bottomSaleBox}>
               <View>
-                <Text style={{ fontSize: 14, color: '#fff', textDecorationLine: 'line-through' }}>{item.price.toLocaleString()}원</Text>
+                <Text style={{ fontSize: 14, color: '#fff', textDecorationLine: 'line-through' }}>
+                  {item.price.toLocaleString()}원
+                </Text>
               </View>
               <View style={{ marginTop: 5 }}>
-                <Text style={{ fontSize: 23, fontWeight: '500', color: '#fff' }}>{item.salePrice.toLocaleString()}원</Text>
+                <Text style={{ fontSize: 23, fontWeight: '500', color: '#fff' }}>
+                  {item.salePrice.toLocaleString()}원
+                </Text>
               </View>
             </View>
           </View>
@@ -49,7 +62,9 @@ export default function TiketMain() {
             <Text style={{ fontSize: 16, lineHeight: 20, fontWeight: '500' }}>{item.title}</Text>
           </View>
           <View>
-            <Text style={{ fontSize: 12, lineHeight: 18, color: colors.defaultgray }}>{item.discription}</Text>
+            <Text style={{ fontSize: 12, lineHeight: 18, color: colors.defaultgray }}>
+              {item.discription}
+            </Text>
           </View>
           <View>
             <Text style={{ fontSize: 12, lineHeight: 18, color: colors.defaultgray }}>
@@ -60,7 +75,13 @@ export default function TiketMain() {
       </View>
     );
 
-    return <FlatList data={TIKET_LIST} keyExtractor={(item) => item.id.toString()} renderItem={({ item }) => renderItem(item)} />;
+    return (
+      <FlatList
+        data={TIKET_LIST}
+        keyExtractor={(item) => item.id.toString()}
+        renderItem={({ item }) => renderItem(item)}
+      />
+    );
   };
 
   const ModalMap = () => {

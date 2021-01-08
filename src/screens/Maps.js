@@ -20,17 +20,6 @@ export default function Maps(props) {
   const cardRef = useRef(null);
   const _scrollView = useRef(null);
 
-  // const onMarkerPress = (mapEventData) => {
-  //   const markerID = mapEventData._targetInst.return.key;
-
-  //   let x = markerID * CARD_WIDTH + markerID * 20;
-  //   if (Platform.OS === 'ios') {
-  //     x = x - SPACING_FOR_CARD_INSET;
-  //   }
-
-  //   _scrollView.current.scrollTo({ x: x, y: 0, animated: true });
-  // };
-
   let mapIndex = 0;
   let mapAnimation = new Animated.Value(0);
 
@@ -79,30 +68,6 @@ export default function Maps(props) {
     })();
   }, []);
 
-  const handleRenderItem = ({ item, index }) => {
-    // console.log(item.src);
-    return (
-      <View style={styles.card} key={item.id}>
-        <View style={styles.imgContainer}>
-          <View style={{ height: 40, width: 40 }}>
-            <Image source={item.src} style={styles.cardImage} />
-          </View>
-        </View>
-        <View style={styles.textContent}>
-          <Text numberOfLines={1} style={styles.cardTitle}>
-            {item.name}
-          </Text>
-          <Text numberOfLines={1} style={styles.cardDescription}>
-            {item.description}
-          </Text>
-          <Text numberOfLines={1} style={styles.cardDescription}>
-            {item.area} {item.place} ∙ {item.food}
-          </Text>
-        </View>
-      </View>
-    );
-  };
-
   const interpolations = SEARCH_DATA.map((item, index) => {
     const inputRange = [(index - 1) * CARD_WIDTH, index * CARD_WIDTH, (index + 1) * CARD_WIDTH];
 
@@ -146,36 +111,18 @@ export default function Maps(props) {
                   title={item.name}
                   description={item.description}
                 >
-                  {/* <FontAwesome5
-                    name={item.icon}
-                    size={item.id === index ? 26 : 26}
-                    color={colors.defaultRed}
-                  /> */}
-                  <Animated.Image
-                    source={require('../assert/image/map_marker.png')}
-                    style={[styles.marker, scaleStyle]}
-                    resizeMode="cover"
-                  />
+                  <Animated.View style={[styles.markerWrap]}>
+                    <Animated.Image
+                      source={require('../assert/image/map_marker.png')}
+                      style={[styles.marker, scaleStyle]}
+                      resizeMode="cover"
+                    />
+                  </Animated.View>
                 </MapView.Marker>
               );
             })
           : null}
       </MapView>
-      {/* <Animated.ScrollView horizontal scrollEventThrottle={1} showsHorizontalScrollIndicator={false} style={styles.scrollView}>
-        {SEARCH_DATA.map((item) => (
-          <View style={styles.card} key={item.id}>
-            <Image source={{ url: item.img }} style={styles.cardImage} resizeMode="cover" />
-            <View style={styles.textContent}>
-              <Text numberOfLines={1} style={styles.cardTitle}>
-                {item.name}
-              </Text>
-              <Text numberOfLines={1} style={styles.cardDescription}>
-                {item.description}
-              </Text>
-            </View>
-          </View>
-        ))}
-      </Animated.ScrollView> */}
       <Animated.ScrollView
         horizontal
         pagingEnabled
@@ -275,10 +222,7 @@ const styles = StyleSheet.create({
     zIndex: 3,
     borderRadius: 50,
   },
-  marker: {
-    width: 30,
-    height: 30,
-  },
+
   card: {
     flexDirection: 'row',
     height: 70,
@@ -341,5 +285,15 @@ const styles = StyleSheet.create({
     fontSize: 11,
     color: colors.defaultgray,
     marginTop: 2,
+  },
+  markerWrap: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: 50,
+    height: 50,
+  },
+  marker: {
+    width: 30,
+    height: 30,
   },
 });

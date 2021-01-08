@@ -17,7 +17,6 @@ export default function App() {
 
   const takePicture = async () => {
     const result = await cameraRef.current.takePictureAsync();
-    console.log('result>>', result);
     setImgUrl(result.uri);
   };
 
@@ -34,7 +33,11 @@ export default function App() {
           <TouchableOpacity
             style={styles.button}
             onPress={() => {
-              setType(type === Camera.Constants.Type.back ? Camera.Constants.Type.front : Camera.Constants.Type.back);
+              setType(
+                type === Camera.Constants.Type.back
+                  ? Camera.Constants.Type.front
+                  : Camera.Constants.Type.back
+              );
             }}
           >
             <Text style={styles.text}> 카메라 전환 </Text>
