@@ -1,26 +1,26 @@
-import { StatusBar } from 'expo-status-bar';
+import { registerRootComponent } from 'expo';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import PoingContainer from './src/container/PoingContainer';
-import Navigation from './src/navigations/Navigation';
 import 'react-native-gesture-handler';
-import Test from './src/components/Test';
+import { createStore, combineReducers } from 'redux';
+import { Provider } from 'react-redux';
+import { rootReducer } from './src/modules';
+import { StyleSheet, Text, View } from 'react-native';
+import Navigation from './src/navigations/Navigation';
+
+const store = createStore(rootReducer);
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      {/* <PoingContainer /> */}
+    <Provider store={store}>
       <Navigation />
-      {/* <Test /> */}
-    </View>
+    </Provider>
   );
 }
+registerRootComponent(App);
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    // alignItems: 'center',
-    // justifyContent: 'center',
   },
 });

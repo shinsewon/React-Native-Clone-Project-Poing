@@ -16,7 +16,6 @@ import { MOCKDATA } from '../data/data';
 export default function SearchPage({ navigation, route }) {
   const [fetchData, setFatchData] = useState([]);
 
-  // const paramsImg = route.params.data[0].src;
   const paramsImg = route.params.data[0].src;
 
   const goToNavigation = navigation;

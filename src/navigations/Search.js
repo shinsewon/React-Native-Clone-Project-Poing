@@ -1,13 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import styled from 'styled-components/native';
 import { StyleSheet, View, FlatList, ActivityIndicator, TouchableOpacity } from 'react-native';
 import {
   Container,
   Header,
   Item,
   Input,
-  Icon,
-  Button,
   Text,
   List,
   ListItem,
@@ -17,11 +14,13 @@ import {
   Thumbnail,
 } from 'native-base';
 import _ from 'lodash';
+import { connect } from 'react-redux';
+import { changeInput, insert, remove } from '../modules/searchData';
 import { colors } from '../styles/color/Color';
 import { POPULAR_SEARCHES, MOCKDATA } from '../data/data';
 import { AntDesign } from 'react-native-vector-icons';
 
-export default function Search({ navigation }) {
+function Search({ navigation, input, search, changeInput, insert, remove }) {
   const [data, setData] = useState([]);
   const [fullData, setFullData] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -82,7 +81,6 @@ export default function Search({ navigation }) {
     return (
       <ListItem avatar onPress={(item) => goToDetail(item, index)}>
         <Left>
-          {/* <Thumbnail source={{ uri: item.img }} /> */}
           <Thumbnail source={{ uri: item.img }} />
         </Left>
         <Body>
@@ -241,6 +239,18 @@ export default function Search({ navigation }) {
     </Container>
   );
 }
+
+export default connect(
+  ({ searchData }) => ({
+    input: searchData.input,
+    search: searchData.search,
+  }),
+  {
+    changeInput,
+    remove,
+    insert,
+  }
+)(Search);
 
 const styles = StyleSheet.create({
   wrap: {
