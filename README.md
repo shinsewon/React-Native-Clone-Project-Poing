@@ -4,11 +4,11 @@
 
 <img src="/src/assert/image/poing.png"/>
 
-# 프로젝트 기간
+# # 프로젝트 기간
 
 - 2020.01.01 - 2020.01.08(8일)
 
-# 작업 인원
+# # 작업 인원
 
 - 1명(Front-End)
 
@@ -21,9 +21,9 @@
 <img src="https://user-images.githubusercontent.com/68217675/104121300-688e2f00-5380-11eb-970e-fcc67148ed5b.gif" width="200"></img>
 </div>
 
-## 기술 스택/툴
+## # 기술 스택/툴
 
-#### Front-end
+#### # Front-end
 
 - HTML
 - JavaScript ES6+
@@ -34,7 +34,7 @@
 - Ratings (library)
 - Git(git rebase), GitHub
 
-## 구현한 페이지 (혹은 컴포넌트)
+## # 구현한 페이지 (혹은 컴포넌트)
 
 - Home 페이지 (홈 화면 슬라이더 기능)
 - Search 페이지 (검색 기능 - 백엔드 API 없이 MockData로 구현완료)
