@@ -207,7 +207,7 @@ function Search({ navigation, input, search, changeInput, insert, remove }) {
             autoCompleteType="off"
             style={styles.input}
             value={searchTitle}
-            clearTextOnFocus="true"
+            clearTextOnFocus={true}
             onFocus={handleOnFocus}
           />
           {click ? (

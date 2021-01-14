@@ -1,5 +1,15 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image, TextInput, ScrollView, SafeAreaView, Pressable, Alert } from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  TextInput,
+  ScrollView,
+  SafeAreaView,
+  Pressable,
+  Alert,
+} from 'react-native';
 import { AntDesign, MaterialIcons } from 'react-native-vector-icons';
 import CardSlider from './CardSlider';
 import AwardsCard from './AwardsCard';
@@ -11,7 +21,10 @@ const LogoTitle = () => {
   return (
     <View style={styles.logoTitleWrap}>
       <View style={styles.logoContainer}>
-        <Image style={{ width: 80, height: 45 }} source={require('../../assert/image/ohoing.png')} />
+        <Image
+          style={{ width: 80, height: 45 }}
+          source={require('../../assert/image/ohoing.png')}
+        />
         <TextInput style={styles.textInput} editable={false} value={'서울 전체'} />
         <MaterialIcons name="gps-fixed" size={25} />
       </View>
@@ -53,8 +66,8 @@ export default function HomeScreen() {
           <TotalFoodCard />
           <SectionBar title="서울 전체 추천 레스토랑" show={true} />
           <ItemCard />
-          <SectionBar title="스시 매니아들을 위한" show={true} />
-          <RectangleSilder />
+          {/* <SectionBar title="스시 매니아들을 위한" show={true} /> */}
+          {/* <RectangleSilder /> */}
         </View>
       </ScrollView>
     </SafeAreaView>

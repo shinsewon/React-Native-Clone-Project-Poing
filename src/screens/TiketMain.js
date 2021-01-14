@@ -17,14 +17,14 @@ import Modal from '../components/Modal/Modal';
 
 export default function TiketMain() {
   const ChoiceTiket = () => (
-    <View style={styles.ChoiceTiketContainer}>
-      <TiketBox>
+    <SafeAreaView style={styles.ChoiceTiketContainer}>
+      <View style={styles.TiketBox}>
         <Text style={styles.tiket}>다이닝 티켓</Text>
-      </TiketBox>
-      <TiketBox>
+      </View>
+      <View style={styles.TiketBox}>
         <Text style={styles.tiket}>다이닝 가이드</Text>
-      </TiketBox>
-    </View>
+      </View>
+    </SafeAreaView>
   );
 
   const TiketList = () => {
@@ -58,7 +58,7 @@ export default function TiketMain() {
           </View>
         </View>
         <View style={styles.titleContainer}>
-          <View style={styles.restaurantName}>
+          <View>
             <Text style={{ fontSize: 16, lineHeight: 20, fontWeight: '500' }}>{item.title}</Text>
           </View>
           <View>
@@ -90,13 +90,13 @@ export default function TiketMain() {
 
   return (
     <SafeAreaView style={styles.wrap}>
-      <ScrollView>
+      <View>
         <View style={styles.header}>
           <Text style={styles.headerText}>티켓</Text>
         </View>
         <ChoiceTiket />
         <TiketList />
-      </ScrollView>
+      </View>
       <View style={styles.modalContainer}>
         <ModalMap />
       </View>
@@ -112,12 +112,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   header: {
-    // flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    width: '100%',
     height: 40,
-    // backgroundColor: 'yellow',
   },
   rederItemContainer: {
     marginBottom: 20,
@@ -129,12 +126,8 @@ const styles = StyleSheet.create({
     lineHeight: 23,
   },
   ChoiceTiketContainer: {
-    flex: 1,
-    width: '100%',
     justifyContent: 'center',
-    // alignItems: 'center',
     flexDirection: 'row',
-    // backgroundColor: 'blue',
   },
 
   tiketContainer: {
@@ -160,7 +153,6 @@ const styles = StyleSheet.create({
     width: '100%',
     height: 22,
     top: 10,
-    // backgroundColor: 'yellow',
   },
   saleBox: {
     alignItems: 'center',
@@ -180,7 +172,6 @@ const styles = StyleSheet.create({
   heartBox: {
     justifyContent: 'center',
     alignItems: 'center',
-    // backgroundColor: 'blue',
     marginRight: 15,
   },
   heartBtn: {
@@ -201,38 +192,30 @@ const styles = StyleSheet.create({
     right: 15,
     zIndex: 9,
     height: 40,
-    // backgroundColor: 'yellow',
     justifyContent: 'center',
   },
   bottomSaleBox: {
-    // flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'flex-end',
-    // marginRight: 15,
-    // lineHeight: 30,
   },
   titleContainer: {
     height: 50,
     marginHorizontal: 20,
     marginVertical: 10,
-    // backgroundColor: 'yellow',
   },
-  restaurantName: {
-    // height: 16,
-    // backgroundColor: 'green',
-  },
+
   modalContainer: {
     position: 'absolute',
     bottom: 10,
   },
-});
 
-const TiketBox = styled(View)`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 50%;
-  height: 48px;
-  border-bottom-width: 2px;
-  border-bottom-color: #eb0019;
-`;
+  TiketBox: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: '50%',
+    height: 48,
+    borderBottomWidth: 2,
+    borderBottomColor: 'red',
+  },
+});

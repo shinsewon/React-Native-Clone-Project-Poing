@@ -1,12 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { StyleSheet, Text, View, Dimensions, Animated, Image, SafeAreaView } from 'react-native';
-import Carousel from 'react-native-snap-carousel';
+import { StyleSheet, Text, View, Dimensions, Animated, Image } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
-import MapView, { Marker, AnimatedRegion, PROVIDER_GOOGLE } from 'react-native-maps';
+import MapView, { Marker, PROVIDER_GOOGLE } from 'react-native-maps';
 import * as Location from 'expo-location';
-import { FontAwesome5 } from 'react-native-vector-icons';
-import { colors } from '../styles/color/Color';
 import { SEARCH_DATA } from '../data/data';
+import { colors } from '../styles/color/Color';
 
 const { width, height } = Dimensions.get('window');
 const CARD_HEIGHT = 220;
@@ -18,7 +16,6 @@ export default function Maps(props) {
   const [mapRegin, setMapRegin] = useState(null);
 
   const cardRef = useRef(null);
-  const _scrollView = useRef(null);
 
   let mapIndex = 0;
   let mapAnimation = new Animated.Value(0);
@@ -26,6 +23,9 @@ export default function Maps(props) {
   useEffect(() => {
     mapAnimation.addListener(({ value }) => {
       let index = Math.floor(value / CARD_WIDTH + 0.3);
+      console.log('value>>', value);
+      console.log('index>>', index);
+      console.log('CARD_WIDTH>>');
 
       if (index >= SEARCH_DATA.length) {
         index = SEARCH_DATA.length - 1;

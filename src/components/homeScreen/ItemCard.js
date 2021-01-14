@@ -19,12 +19,16 @@ export default function ItemCard() {
           </View>
           <View style={styles.textContainer}>
             <Text style={{ fontSize: 13, paddingLeft: 3 }}>{item.score}</Text>
-            <Text style={{ fontSize: 12, color: '#c4bba4', paddingLeft: 3 }}>({item.comments})</Text>
+            <Text style={{ fontSize: 12, color: '#c4bba4', paddingLeft: 3 }}>
+              ({item.comments})
+            </Text>
           </View>
         </View>
         <View style={styles.ticketContainer}>
-          <FontAwesome5 name="ticket-alt" size="14" color="#EB1719" />
-          <Text style={{ fontSize: 11, color: '#EB1719', fontWeight: '700', paddingLeft: 3 }}>TICKET</Text>
+          <FontAwesome5 name="ticket-alt" size={14} color="#EB1719" />
+          <Text style={{ fontSize: 11, color: '#EB1719', fontWeight: '700', paddingLeft: 3 }}>
+            TICKET
+          </Text>
         </View>
       </View>
     );
@@ -34,7 +38,7 @@ export default function ItemCard() {
     <View style={styles.wrap}>
       <FlatList
         data={RECOMMENDATION_RESTAURANT}
-        keyExtractor={(item) => item.id.toString()}
+        keyExtractor={(item) => String(item.id)}
         horizontal={true}
         showsHorizontalScrollIndicator={false}
         renderItem={({ item }) => renderItem(item)}
