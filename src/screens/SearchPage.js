@@ -1,13 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import {
-  StyleSheet,
-  Text,
-  View,
-  ScrollView,
-  SafeAreaView,
-  TextInput,
-  TouchableOpacity,
-} from 'react-native';
+import { StyleSheet, View, ScrollView, TouchableOpacity } from 'react-native';
 import DetailRestaurant from './DetailRestaurant';
 import MainSlide from '../components/DetialRestaurant/MainSlide';
 import { AntDesign, Feather } from 'react-native-vector-icons';

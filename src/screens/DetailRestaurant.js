@@ -53,7 +53,7 @@ export default function DetailRestaurant({ paramData, routeIdx }) {
     title: '매장 정보',
     subTitle: '정보 수정 요청',
     show: 'true',
-    size: '15',
+    fontSize: '15',
     barColor: '#EB1719',
     subTitleColor: '#c4bbab',
   };

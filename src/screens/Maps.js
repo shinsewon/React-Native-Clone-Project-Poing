@@ -23,9 +23,6 @@ export default function Maps(props) {
   useEffect(() => {
     mapAnimation.addListener(({ value }) => {
       let index = Math.floor(value / CARD_WIDTH + 0.3);
-      console.log('value>>', value);
-      console.log('index>>', index);
-      console.log('CARD_WIDTH>>');
 
       if (index >= SEARCH_DATA.length) {
         index = SEARCH_DATA.length - 1;
