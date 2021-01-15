@@ -1,13 +1,10 @@
-// import produce from 'immer';
 import produce from 'immer';
-import { createAction, handleActions, handleAction } from 'redux-actions';
+import { createAction, handleActions } from 'redux-actions';
 
-//액션 타입 생성
 const CHANGE_INPUT = 'searchData/CHANGE_INPUT';
 const INSERT = 'searchData/INSERT';
 const REMOVE = 'searchData/REMOVE';
 
-//액션생성함수 생성
 export const changeInput = createAction(CHANGE_INPUT, (input) => input);
 
 let id = 0;
@@ -18,7 +15,6 @@ export const insert = createAction(INSERT, (title) => ({
 
 export const remove = createAction(REMOVE, (id) => id);
 
-//초기값 설정
 const initialState = {
   input: '',
   search: [
@@ -29,7 +25,6 @@ const initialState = {
   ],
 };
 
-//리듀서 작성
 const searchData = handleActions(
   {
     [CHANGE_INPUT]: (state, { payload: input }) =>

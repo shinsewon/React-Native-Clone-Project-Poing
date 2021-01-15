@@ -1,15 +1,5 @@
 import React from 'react';
-import {
-  StyleSheet,
-  Text,
-  View,
-  Image,
-  TextInput,
-  ScrollView,
-  SafeAreaView,
-  Pressable,
-  Alert,
-} from 'react-native';
+import { StyleSheet, Text, View, Image, TextInput, ScrollView, SafeAreaView } from 'react-native';
 import { AntDesign, MaterialIcons } from 'react-native-vector-icons';
 import CardSlider from './CardSlider';
 import AwardsCard from './AwardsCard';
@@ -66,8 +56,8 @@ export default function HomeScreen() {
           <TotalFoodCard />
           <SectionBar title="서울 전체 추천 레스토랑" show={true} />
           <ItemCard />
-          {/* <SectionBar title="스시 매니아들을 위한" show={true} /> */}
-          {/* <RectangleSilder /> */}
+          <SectionBar title="스시 매니아들을 위한" show={true} />
+          <RectangleSilder />
         </View>
       </ScrollView>
     </SafeAreaView>

@@ -153,7 +153,7 @@ export default function Maps(props) {
         )}
       >
         {SEARCH_DATA.map((item, index) => (
-          <View style={styles.card2} key={item.id}>
+          <View style={styles.card} key={item.id}>
             <View style={styles.imgContainer}>
               <View style={{ height: 40, width: 40 }}>
                 <Image source={item.src} style={styles.cardImage} />
@@ -219,43 +219,19 @@ const styles = StyleSheet.create({
     zIndex: 3,
     borderRadius: 50,
   },
-
   card: {
-    flexDirection: 'row',
-    height: 70,
-    // borderWidth: 2,
-    // borderColor: 'red',
-    backgroundColor: 'white',
-    borderRadius: 6,
-    marginRight: 10,
-  },
-  card2: {
     width: CARD_WIDTH,
     flexDirection: 'row',
     height: 70,
     backgroundColor: 'white',
     borderRadius: 6,
-    // marginRight: 10,
-    // marginLeft: 10,
-    // elevation: 2,
-    // backgroundColor: '#FFF',
-    // borderTopLeftRadius: 5,
-    // borderTopRightRadius: 5,
     marginHorizontal: 10,
-    // shadowColor: '#000',
-    // shadowRadius: 5,
-    // shadowOpacity: 0.3,
-    // shadowOffset: { x: 2, y: -2 },
-    // // height: CARD_HEIGHT,
-    // width: CARD_WIDTH,
-    // overflow: 'hidden',
   },
   imgContainer: {
     justifyContent: 'center',
     alignItems: 'center',
     width: 40,
     marginLeft: 10,
-    // backgroundColor: 'blue',
   },
   cardImage: {
     borderRadius: 50,
@@ -265,14 +241,11 @@ const styles = StyleSheet.create({
   cardSlider: {
     position: 'absolute',
     bottom: 10,
-    // top: 0,
     zIndex: 9,
   },
   textContent: {
-    // width:'100%',
     marginLeft: 5,
     justifyContent: 'center',
-    // backgroundColor: 'yellow',
   },
   cardTitle: {
     fontSize: 13,

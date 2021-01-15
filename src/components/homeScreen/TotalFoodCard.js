@@ -1,7 +1,13 @@
 import React from 'react';
-import { useEffect } from 'react';
-import { useState } from 'react';
-import { StyleSheet, Text, View, FlatList, Image, TouchableOpacity, SafeAreaView } from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  View,
+  FlatList,
+  Image,
+  TouchableOpacity,
+  SafeAreaView,
+} from 'react-native';
 import { TOTAL_FOOD_PICTURE } from '../../data/data';
 
 export default function TotalFoodCard() {
@@ -34,7 +40,6 @@ const styles = StyleSheet.create({
     width: '100%',
     height: 180,
     marginTop: 30,
-    // backgroundColor: 'yellow',
   },
   awardsCardContainer: {
     flex: 1,

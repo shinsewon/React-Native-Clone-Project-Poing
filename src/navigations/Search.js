@@ -10,7 +10,6 @@ import {
   ListItem,
   Left,
   Body,
-  Right,
   Thumbnail,
 } from 'native-base';
 import _ from 'lodash';
@@ -20,7 +19,7 @@ import { colors } from '../styles/color/Color';
 import { POPULAR_SEARCHES, MOCKDATA } from '../data/data';
 import { AntDesign } from 'react-native-vector-icons';
 
-function Search({ navigation, input, search, changeInput, insert, remove }) {
+function Search({ navigation }) {
   const [data, setData] = useState([]);
   const [fullData, setFullData] = useState([]);
   const [loading, setLoading] = useState(false);

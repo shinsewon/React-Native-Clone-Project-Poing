@@ -1,11 +1,11 @@
 import React from 'react';
-import { StyleSheet, Text, View, SafeAreaView, ScrollView } from 'react-native';
+import { StyleSheet, Text, View, SafeAreaView } from 'react-native';
 import { Rating } from 'react-native-ratings';
 import { EvilIcons } from 'react-native-vector-icons';
 import Section from '../components/Section';
 import StoreInfomation from '../components/DetialRestaurant/StoreInformation';
 
-const TitleText = ({ paramData, routeIdx }) => {
+const TitleText = ({ paramData }) => {
   return (
     <View style={styles.titleText}>
       <Text style={{ fontSize: 22, fontWeight: '500', lineHeight: 33 }}>{paramData[0].name}</Text>
@@ -59,7 +59,7 @@ export default function DetailRestaurant({ paramData, routeIdx }) {
   };
 
   return (
-    <SafeAreaView style={styles.wrap}>
+    <SafeAreaView>
       <TitleText paramData={paramData} routeIdx={routeIdx} />
       <GradeBox />
       <Section {...SectionProps} />
@@ -70,9 +70,6 @@ export default function DetailRestaurant({ paramData, routeIdx }) {
 }
 
 const styles = StyleSheet.create({
-  wrap: {
-    // flex: 1,
-  },
   titleText: {
     marginTop: 20,
   },

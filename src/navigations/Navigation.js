@@ -1,6 +1,6 @@
 import React from 'react';
-import { StyleSheet, Text, TextInput, View, Image } from 'react-native';
-import { AntDesign, MaterialIcons } from 'react-native-vector-icons';
+import { StyleSheet } from 'react-native';
+import { AntDesign } from 'react-native-vector-icons';
 import { Ionicons } from '@expo/vector-icons';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -10,7 +10,6 @@ import MyPoing from './MyPoing';
 import Search from './Search';
 import Tiket from './Tiket';
 import SearchPage from '../screens/SearchPage';
-import Maps from '../screens/Maps';
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -27,10 +26,18 @@ const TabNavigator = () => {
             return <AntDesign name="search1" size={size} color={color} />;
           }
           if (route.name === '티켓') {
-            return <Ionicons name={focused ? 'md-fast-food-sharp' : 'md-fast-food-outline'} size={size} color={color} />;
+            return (
+              <Ionicons
+                name={focused ? 'md-fast-food-sharp' : 'md-fast-food-outline'}
+                size={size}
+                color={color}
+              />
+            );
           }
           if (route.name === '마이포잉') {
-            return <Ionicons name={focused ? 'person' : 'person-outline'} size={size} color={color} />;
+            return (
+              <Ionicons name={focused ? 'person' : 'person-outline'} size={size} color={color} />
+            );
           }
         },
       })}
@@ -42,7 +49,7 @@ const TabNavigator = () => {
       <Tab.Screen name="홈" component={HomeScreen} />
       <Tab.Screen name="검색" component={Search} />
       <Tab.Screen name="티켓" component={Tiket} />
-      <Tab.Screen name="마이포잉" component={Maps} options={{ tabBarBadge: 5 }} />
+      <Tab.Screen name="마이포잉" component={MyPoing} options={{ tabBarBadge: 5 }} />
     </Tab.Navigator>
   );
 };
@@ -55,32 +62,12 @@ export default function Navigation() {
           headerShown: false,
         }}
       >
-        <Stack.Screen
-          name="TabNavigation"
-          // options={{ headerTitle: () => logoTitle() }}
-          component={TabNavigator}
-        />
-        {/* <Stack.Screen name="Home" component={Top} options={{ title: 'My home' }} /> */}
+        <Stack.Screen name="TabNavigation" component={TabNavigator} />
         <Stack.Screen name="SearchPage" component={SearchPage} />
       </Stack.Navigator>
     </NavigationContainer>
   );
 }
-
-// const logoTitle = () => {
-//   return (
-//     <View style={styles.wrap}>
-//       <View style={styles.logoContainer}>
-//         <Image style={{ width: 80, height: 45 }} source={require('../assert/image/ohoing.png')} />
-//         <TextInput style={styles.textInput} editable={false} value={'서울 전체'} />
-//         <MaterialIcons name="gps-fixed" size={25} />
-//       </View>
-//       <View style={styles.calander}>
-//         <AntDesign name="calendar" size={25} />
-//       </View>
-//     </View>
-//   );
-// };
 
 const styles = StyleSheet.create({
   wrap: {

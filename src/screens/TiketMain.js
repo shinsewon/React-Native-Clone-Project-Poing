@@ -1,11 +1,9 @@
 import React from 'react';
-import styled from 'styled-components';
 import {
   StyleSheet,
   Text,
   View,
   SafeAreaView,
-  ScrollView,
   FlatList,
   TouchableOpacity,
   Image,

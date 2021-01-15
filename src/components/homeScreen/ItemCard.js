@@ -1,6 +1,6 @@
 import React from 'react';
-import { Rating, AirbnbRating } from 'react-native-ratings';
-import { StyleSheet, Text, View, FlatList, TouchableOpacity, Image } from 'react-native';
+import { Rating } from 'react-native-ratings';
+import { StyleSheet, Text, View, FlatList, Image } from 'react-native';
 import { FontAwesome5 } from 'react-native-vector-icons';
 import { RECOMMENDATION_RESTAURANT } from '../../data/data';
 

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useRef } from 'react';
 import { StyleSheet, Text, View, SafeAreaView, Image, Dimensions } from 'react-native';
 import Carousel from 'react-native-snap-carousel';
 import { MAIN_PICTURE } from '../../data/data';
@@ -6,7 +6,7 @@ import { MAIN_PICTURE } from '../../data/data';
 export default function CardSlider() {
   const cardRef = useRef();
 
-  const handleRenderItem = ({ item, index }) => {
+  const handleRenderItem = ({ item }) => {
     return (
       <View style={styles.slide}>
         <Image source={item.src} resizeMode="contain" style={styles.slideInnerContainer} />
