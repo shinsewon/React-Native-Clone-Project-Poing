@@ -18,7 +18,7 @@
         완벽하게 다 만들지는 못할지언정 하나를 만들때 최선을 다해 만들어 본다.
         
 - 기간 : 2021년 1월 1일 (금) ~ 2021년 1월 8일(금), 7일간 진행
-- 개발 : 1인 / clone project 후기 (https://velog.io/@shin6403/React-Native-Poing-Clone-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8)
+- 개발 : 1인 / [1인 project 개발 후기](https://velog.io/@shin6403/React-Native-Poing-Clone-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8)
 
 # # 작업 결과물
 
