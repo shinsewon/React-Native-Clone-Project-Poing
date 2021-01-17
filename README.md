@@ -1,14 +1,19 @@
-# Clone Project - POING
+# Oing(오잉)
 
-### 'Poing(포잉)'은 프리미엄 레스토랑 추천 및 예약 플랫폼입니다.
-
+#### 'Oing(오잉)'은 프리미엄 레스토랑 추천 및 예약 플랫폼 'Poing'을 참조하여 개발한 프로젝트입니다.
+<br>
+<br>
+<p align="center">
 <img src="/src/assert/image/poing.png"/>
+</p>
+<br>
+<br>
 
-# # 프로젝트 기간
+# # 프로젝트 기간 🔥
 
 - 2020.01.01 - 2020.01.08(8일)
 
-# # 작업 인원
+# # 작업 인원 🧑🏻‍💻
 
 - 1명 (Front-End)
 
@@ -30,7 +35,7 @@
 <img src="https://user-images.githubusercontent.com/68217675/104121300-688e2f00-5380-11eb-970e-fcc67148ed5b.gif" width="200"></img>
 </div>
 
-## # 기술 스택/툴
+## # 기술 스택/툴 🛠
 
 #### # Front-end
 
