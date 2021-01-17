@@ -20,7 +20,8 @@
 - 기간 : 2021년 1월 1일 (금) ~ 2021년 1월 8일(금), 7일간 진행
 - 개발 : 1인 / [1인 project 개발 후기 Click](https://velog.io/@shin6403/React-Native-Poing-Clone-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8)
 
-# # 작업 결과물
+# # 작업 결과물 (Click!) 🎥
+ [![Youtube Badge](https://www.youtube.com/watch?v=gB3BPZcMXv4s)
 
 <div>
 <img src="https://user-images.githubusercontent.com/68217675/104121069-f5d08400-537e-11eb-99a8-0f1d3616db5b.gif" width="200"></img>
